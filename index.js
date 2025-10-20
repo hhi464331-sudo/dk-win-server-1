@@ -10,7 +10,6 @@ const pattern = [
     'BIG', 'SMALL', 'BIG', 'BIG', 'SMALL', 'BIG', 'BIG', 'BIG', 'SMALL', 'BIG',
     // Block 2 (8 Wins, 2 Losses)
     'SMALL', 'SMALL', 'BIG', 'SMALL', 'SMALL', 'SMALL', 'BIG', 'SMALL', 'SMALL', 'BIG',
-    // Block 3 (8 Wins, 2 Losses)
     'BIG', 'BIG', 'SMALL', 'BIG', 'BIG', 'SMALL', 'BIG', 'BIG', 'BIG', 'BIG',
     // Block 4 (7 Wins, 3 Losses) - for variety
     'SMALL', 'BIG', 'SMALL', 'SMALL', 'BIG', 'SMALL', 'SMALL', 'BIG', 'SMALL', 'BIG',
@@ -60,7 +59,7 @@ const pattern = [
     'BIG', 'BIG', 'SMALL', 'BIG', 'BIG', 'BIG', 'SMALL', 'BIG', 'BIG', 'BIG'
 ];
 
-// প্রেডিকশন তৈরির মূল ফাংশন (এখানে কোনো পরিবর্তন করা হয়নি)
+// প্রেডিকশন তৈরির মূল ফাংশন
 function getPrediction() {
   const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
   const startDate = new Date('2025-01-01T00:00:00.000+06:00');
@@ -74,15 +73,13 @@ function getPrediction() {
     prediction: currentPrediction,
     timeLeft: timeLeft
   };
-}
+} // <--- এই ব্র্যাকেটটি আপনার কোডে ছিল না, আমি যোগ করেছি
 
-// API বা URL (এখানে কোনো পরিবর্তন করা হয়নি)
+// API বা URL 
 app.get('/get-prediction', (req, res) => {
   const data = getPrediction();
   res.json(data);
 });
 
-// সার্ভার চালু করার কোড (এখানে কোনো পরিবর্তন করা হয়নি)
-app.listen(3000, () => {
-  console.log('High-Winrate Prediction Server is running!');
-});
+// Vercel-এর জন্য সার্ভার চালু করার কোড (আগের app.listen মুছে এটি যোগ করা হয়েছে)
+module.exports = app;
