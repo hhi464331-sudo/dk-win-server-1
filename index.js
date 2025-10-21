@@ -73,13 +73,13 @@ function getPrediction() {
     prediction: currentPrediction,
     timeLeft: timeLeft
   };
-} // <--- এই ব্র্যাকেটটি আপনার কোডে ছিল না, আমি যোগ করেছি
+}
 
-// API বা URL 
+// API বা URL
 app.get('/get-prediction', (req, res) => {
   const data = getPrediction();
   res.json(data);
 });
 
-// Vercel-এর জন্য সার্ভার চালু করার কোড (আগের app.listen মুছে এটি যোগ করা হয়েছে)
+// Vercel-এর জন্য সার্ভার চালু করার কোড
 module.exports = app;
